@@ -8,7 +8,7 @@ if (hero && bg) {
     const y = (e.clientY - r.top) / r.height - .5;
     bg.style.transform = `translate(${x * -10}px, ${y * -7}px) scale(1.012)`;
     if (heroTitle) {
-      heroTitle.style.transform = `perspective(900px) rotateX(${6 - y * 8}deg) rotateY(${-16 + x * 14}deg) translate3d(${x * 10}px, ${y * 8}px, 28px)`;
+      heroTitle.style.transform = `perspective(920px) rotateX(${4 - y * 3}deg) rotateY(${-10 + x * 5}deg) translate3d(${x * 3}px, ${y * 2}px, 16px)`;
     }
   });
   hero.addEventListener('pointerleave', () => {
