@@ -104,7 +104,7 @@ async function setSound(on) {
   audioRig.classList.toggle('sound-on', on);
   soundButton.setAttribute('aria-pressed', String(on));
   soundState.textContent = on ? 'SOUND ON' : 'SOUND OFF';
-  heroSound.textContent = on ? 'Выключить звук' : 'Включить звук';
+  if (heroSound) heroSound.textContent = on ? 'Выключить звук' : 'Включить звук';
   playButton.querySelector('span').textContent = on ? 'Ⅱ' : '▶';
   reelFrame.classList.toggle('playing', on);
   reelStatus.textContent = on ? 'SHOWREEL / SOUND ON' : 'SHOWREEL / SOUND READY';
