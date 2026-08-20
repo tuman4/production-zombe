@@ -1,19 +1,14 @@
 const hero = document.querySelector('.hero');
 const bg = document.querySelector('.hero-bg');
-const heroTitle = document.querySelector('.hero-title3d');
 if (hero && bg) {
   hero.addEventListener('pointermove', (e) => {
     const r = hero.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - .5;
     const y = (e.clientY - r.top) / r.height - .5;
     bg.style.transform = `translate(${x * -10}px, ${y * -7}px) scale(1.012)`;
-    if (heroTitle) {
-      heroTitle.style.transform = `perspective(920px) rotateX(${4 - y * 3}deg) rotateY(${-10 + x * 5}deg) translate3d(${x * 3}px, ${y * 2}px, 16px)`;
-    }
   });
   hero.addEventListener('pointerleave', () => {
     bg.style.transform = 'translate(0,0) scale(1)';
-    if (heroTitle) heroTitle.style.transform = '';
   });
 }
 
