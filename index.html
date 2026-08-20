@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070a0d" />
+  <title>Production Zombe — 26e</title>
+  <meta name="description" content="Production Zombe — концерты, люди, городские моменты и немного трэша." />
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top"><span>PRODUCTION</span><b>ZOMBE</b></a>
+    <nav>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="rec"><i></i> REC</div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Главный экран">
+      <img class="hero-bg" src="./src/assets/hero-reference.jpg" alt="Production Zombe — видеограф в тёмном лесу с камерой Panasonic" />
+      <div class="hero-vignette"></div>
+      <a class="hero-hotspot showreel-hotspot" href="#reel" aria-label="Showreel"></a>
+      <a class="hero-hotspot telegram-hotspot" href="#contact" aria-label="Telegram"></a>
+      <div class="scroll-hint"><span></span>SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="intro section-pad" id="work">
+      <div class="section-kicker">01 / SELECTED WORK</div>
+      <div class="intro-grid">
+        <h1>Живые кадры.<br><span>Без постановки.</span></h1>
+        <p>Концерты, скейт, улица, друзья и всё, что происходит между ними. Съёмка остаётся близкой к моменту — без глянца и лишней режиссуры.</p>
+      </div>
+
+      <div class="work-grid">
+        <figure class="work-card large" data-index="01">
+          <img src="./src/assets/camera-crew.jpg" alt="Съёмка на Panasonic" />
+          <figcaption><span>BEHIND THE CAMERA</span><small>DOCUMENTARY / 2026</small></figcaption>
+        </figure>
+        <figure class="work-card" data-index="02">
+          <img src="./src/assets/skate-rail.jpg" alt="Скейт съёмка" />
+          <figcaption><span>STREET SESSION</span><small>SKATE / 2026</small></figcaption>
+        </figure>
+        <figure class="work-card" data-index="03">
+          <img src="./src/assets/crew-group.jpg" alt="Команда на площадке" />
+          <figcaption><span>26e CREW</span><small>PEOPLE / 2026</small></figcaption>
+        </figure>
+        <figure class="work-card wide" data-index="04">
+          <img src="./src/assets/skate-stairs.jpg" alt="Скейт на лестнице" />
+          <figcaption><span>OUTSIDE</span><small>STREET / 2026</small></figcaption>
+        </figure>
+        <figure class="work-card" data-index="05">
+          <img src="./src/assets/camera-floor.jpg" alt="Камера на съёмке" />
+          <figcaption><span>RAW PROCESS</span><small>BACKSTAGE / 2026</small></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="reel section-pad" id="reel">
+      <div class="section-kicker">02 / SHOWREEL</div>
+      <div class="reel-frame">
+        <div class="reel-glow"></div>
+        <img src="./src/assets/camera-floor.jpg" alt="Кадр для showreel" />
+        <button class="play" type="button" aria-label="Воспроизвести showreel"><span>▶</span></button>
+        <div class="reel-meta">
+          <span>SHOWREEL / 00:58</span>
+          <span>FULLSCREEN ↗</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="section-kicker">03 / ABOUT</div>
+      <div class="about-grid">
+        <div class="about-title">
+          <span>PRODUCTION</span>
+          <strong class="chrome">ZOMBE</strong>
+        </div>
+        <div class="about-copy">
+          <p class="lead">Снимаем то, что хочется пересмотреть через несколько лет и снова почувствовать тот вечер.</p>
+          <p>Фокус — лайв, концерты, городская культура, люди и небольшие истории вокруг них. Визуальный язык: документальный кадр, ручная камера, естественный свет и немного цифрового шума.</p>
+          <div class="services">
+            <span>LIVE VIDEO</span><span>PHOTO</span><span>BACKSTAGE</span><span>EVENTS</span><span>STREET</span><span>REELS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="contact-forest"></div>
+      <div class="section-kicker">04 / CONTACT</div>
+      <div class="contact-content">
+        <p>Есть идея для съёмки?</p>
+        <h2>LET’S MAKE<br><span class="chrome">SOMETHING REAL.</span></h2>
+        <div class="contact-links">
+          <a href="#">TELEGRAM <b>↗</b></a>
+          <a href="#">INSTAGRAM <b>↗</b></a>
+          <a href="mailto:hello@example.com">EMAIL <b>↗</b></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>PRODUCTION ZOMBE © 2026</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+
+  <aside class="audio-rig" aria-label="Управление звуком">
+    <div class="audio-rig__hardware" aria-hidden="true">
+      <div class="woofer"><span></span></div>
+      <div class="amp">
+        <div class="amp__label">ZOMBE AUDIO</div>
+        <div class="amp__fins"></div>
+        <div class="amp__led"></div>
+      </div>
+    </div>
+    <canvas class="audio-viz" width="240" height="38" aria-hidden="true"></canvas>
+    <button class="sound-toggle" type="button" aria-pressed="false">
+      <span class="sound-dot"></span>
+      <span class="sound-state">SOUND OFF</span>
+      <span class="sound-icon" aria-hidden="true">↗</span>
+    </button>
+  </aside>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Закрыть">×</button>
+    <img alt="" />
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <script src="./src/main.js"></script>
+</body>
+</html>
