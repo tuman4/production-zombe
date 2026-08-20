@@ -124,6 +124,12 @@ playButton?.addEventListener('click', () => {
   setSound(on);
 });
 
+function updateAudioDock() {
+  audioRig.classList.toggle('audio-rig--compact', window.scrollY > window.innerHeight * .35);
+}
+window.addEventListener('scroll', updateAudioDock, {passive: true});
+updateAudioDock();
+
 function drawViz() {
   if (!vizCtx || !analyser) return;
   cancelAnimationFrame(vizFrame);
