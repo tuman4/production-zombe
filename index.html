@@ -22,10 +22,27 @@
 
   <main>
     <section class="hero" aria-label="Главный экран">
-      <img class="hero-bg" src="./src/assets/hero-reference.jpg" alt="Production Zombe — видеограф в тёмном лесу с камерой Panasonic" />
+      <img class="hero-bg" src="./src/assets/hero-reference.jpg" alt="Production Zombe — видеограф в тёмном лесу с камерой Panasonic" fetchpriority="high" />
       <div class="hero-vignette"></div>
-      <a class="hero-hotspot showreel-hotspot" href="#reel" aria-label="Showreel"></a>
-      <a class="hero-hotspot telegram-hotspot" href="#contact" aria-label="Telegram"></a>
+      <div class="camera-hud" aria-hidden="true">
+        <div class="focus-ring">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="scan-line"></div>
+        <div class="hud-readout hud-readout--left">F2.8 / ISO 800 / REC</div>
+        <div class="hud-readout hud-readout--right">PANASONIC LOCK</div>
+      </div>
+      <div class="hero-panel">
+        <span class="hero-label">RAW DOCUMENTARY VIDEO</span>
+        <h1>PRODUCTION<br><b>ZOMBE</b></h1>
+        <p>Концерты, скейт, backstage и городские моменты с живой камерой и настоящим шумом кадра.</p>
+        <div class="hero-actions">
+          <a class="magnetic-link" href="#work">Смотреть работы</a>
+          <button class="magnetic-link magnetic-link--ghost hero-sound" type="button">Включить звук</button>
+        </div>
+      </div>
+      <a class="hero-hotspot showreel-hotspot" href="#reel" aria-label="Showreel"><span>SHOWREEL</span></a>
+      <a class="hero-hotspot telegram-hotspot" href="#contact" aria-label="Contact"><span>CONTACT</span></a>
       <div class="scroll-hint"><span></span>SCROLL TO EXPLORE</div>
     </section>
 
@@ -67,8 +84,8 @@
         <img src="./src/assets/camera-floor.jpg" alt="Кадр для showreel" />
         <button class="play" type="button" aria-label="Воспроизвести showreel"><span>▶</span></button>
         <div class="reel-meta">
-          <span>SHOWREEL / 00:58</span>
-          <span>FULLSCREEN ↗</span>
+          <span class="reel-status">SHOWREEL / SOUND READY</span>
+          <a href="./src/assets/camera-floor.jpg" target="_blank" rel="noreferrer">OPEN FRAME ↗</a>
         </div>
       </div>
     </section>
@@ -97,9 +114,9 @@
         <p>Есть идея для съёмки?</p>
         <h2>LET’S MAKE<br><span class="chrome">SOMETHING REAL.</span></h2>
         <div class="contact-links">
-          <a href="#">TELEGRAM <b>↗</b></a>
-          <a href="#">INSTAGRAM <b>↗</b></a>
-          <a href="mailto:hello@example.com">EMAIL <b>↗</b></a>
+          <a href="mailto:hello@example.com?subject=Production%20Zombe%20shoot">EMAIL <b>↗</b></a>
+          <a href="#reel">SHOWREEL <b>↗</b></a>
+          <a href="#work">WORK <b>↗</b></a>
         </div>
       </div>
     </section>
@@ -130,7 +147,9 @@
 
   <div class="lightbox" aria-hidden="true">
     <button class="lightbox-close" aria-label="Закрыть">×</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Предыдущий кадр">‹</button>
     <img alt="" />
+    <button class="lightbox-nav lightbox-next" aria-label="Следующий кадр">›</button>
     <div class="lightbox-caption"></div>
   </div>
 

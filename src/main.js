@@ -13,21 +13,47 @@ if (hero && bg) {
 const box = document.querySelector('.lightbox');
 const boxImg = box.querySelector('img');
 const caption = box.querySelector('.lightbox-caption');
-document.querySelectorAll('.work-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const img = card.querySelector('img');
-    const title = card.querySelector('figcaption span').textContent;
-    boxImg.src = img.src;
-    boxImg.alt = img.alt;
-    caption.textContent = title;
-    box.classList.add('open');
-    box.setAttribute('aria-hidden','false');
+const galleryCards = [...document.querySelectorAll('.work-card')];
+let activeCard = 0;
+
+function openCard(index) {
+  activeCard = (index + galleryCards.length) % galleryCards.length;
+  const card = galleryCards[activeCard];
+  const img = card.querySelector('img');
+  const title = card.querySelector('figcaption span').textContent;
+  const meta = card.querySelector('figcaption small').textContent;
+  boxImg.src = img.src;
+  boxImg.alt = img.alt;
+  caption.textContent = `${title} / ${meta}`;
+  box.classList.add('open');
+  box.setAttribute('aria-hidden','false');
+}
+
+galleryCards.forEach((card, index) => {
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `Открыть кадр ${card.querySelector('figcaption span').textContent}`);
+  card.addEventListener('click', () => openCard(index));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openCard(index);
+    }
   });
 });
 function closeBox(){box.classList.remove('open');box.setAttribute('aria-hidden','true')}
+function nextBox(){openCard(activeCard + 1)}
+function prevBox(){openCard(activeCard - 1)}
 box.querySelector('.lightbox-close').addEventListener('click',closeBox);
+box.querySelector('.lightbox-next').addEventListener('click',nextBox);
+box.querySelector('.lightbox-prev').addEventListener('click',prevBox);
 box.addEventListener('click',e=>{if(e.target===box)closeBox()});
-window.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
+window.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeBox();
+  if(!box.classList.contains('open')) return;
+  if(e.key==='ArrowRight')nextBox();
+  if(e.key==='ArrowLeft')prevBox();
+});
 
 const obs = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) entry.target.animate([
@@ -41,6 +67,10 @@ document.querySelectorAll('.work-card,.about-grid,.reel-frame,.contact-content')
 // which keeps the site compatible with browser autoplay policies.
 const audioRig = document.querySelector('.audio-rig');
 const soundButton = document.querySelector('.sound-toggle');
+const heroSound = document.querySelector('.hero-sound');
+const playButton = document.querySelector('.play');
+const reelFrame = document.querySelector('.reel-frame');
+const reelStatus = document.querySelector('.reel-status');
 const soundState = document.querySelector('.sound-state');
 const vizCanvas = document.querySelector('.audio-viz');
 const vizCtx = vizCanvas?.getContext('2d');
@@ -74,10 +104,22 @@ async function setSound(on) {
   audioRig.classList.toggle('sound-on', on);
   soundButton.setAttribute('aria-pressed', String(on));
   soundState.textContent = on ? 'SOUND ON' : 'SOUND OFF';
+  heroSound.textContent = on ? 'Выключить звук' : 'Включить звук';
+  playButton.querySelector('span').textContent = on ? 'Ⅱ' : '▶';
+  reelFrame.classList.toggle('playing', on);
+  reelStatus.textContent = on ? 'SHOWREEL / SOUND ON' : 'SHOWREEL / SOUND READY';
   localStorage.setItem('zombe-sound', on ? 'on' : 'off');
 }
 
 soundButton?.addEventListener('click', () => {
+  const on = soundButton.getAttribute('aria-pressed') !== 'true';
+  setSound(on);
+});
+heroSound?.addEventListener('click', () => {
+  const on = soundButton.getAttribute('aria-pressed') !== 'true';
+  setSound(on);
+});
+playButton?.addEventListener('click', () => {
   const on = soundButton.getAttribute('aria-pressed') !== 'true';
   setSound(on);
 });
