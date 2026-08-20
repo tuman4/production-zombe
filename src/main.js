@@ -14,6 +14,7 @@ if (hero && bg) {
 
 const box = document.querySelector('.lightbox');
 const boxImg = box.querySelector('img');
+const boxVideo = box.querySelector('video');
 const caption = box.querySelector('.lightbox-caption');
 const galleryCards = [...document.querySelectorAll('.work-card')];
 let activeCard = 0;
@@ -21,11 +22,25 @@ let activeCard = 0;
 function openCard(index) {
   activeCard = (index + galleryCards.length) % galleryCards.length;
   const card = galleryCards[activeCard];
-  const img = card.querySelector('img');
+  const media = card.querySelector('video, img');
   const title = card.querySelector('figcaption span').textContent;
   const meta = card.querySelector('figcaption small').textContent;
-  boxImg.src = img.src;
-  boxImg.alt = img.alt;
+  if (media.tagName === 'VIDEO') {
+    boxImg.removeAttribute('src');
+    boxImg.hidden = true;
+    boxVideo.hidden = false;
+    boxVideo.src = media.currentSrc || media.src;
+    boxVideo.poster = media.poster || '';
+    boxVideo.currentTime = 0;
+    boxVideo.play().catch(() => {});
+  } else {
+    boxVideo.pause();
+    boxVideo.removeAttribute('src');
+    boxVideo.hidden = true;
+    boxImg.hidden = false;
+    boxImg.src = media.src;
+    boxImg.alt = media.alt;
+  }
   caption.textContent = `${title} / ${meta}`;
   box.classList.add('open');
   box.setAttribute('aria-hidden','false');
@@ -34,8 +49,19 @@ function openCard(index) {
 galleryCards.forEach((card, index) => {
   card.tabIndex = 0;
   card.setAttribute('role', 'button');
-  card.setAttribute('aria-label', `Открыть кадр ${card.querySelector('figcaption span').textContent}`);
+  card.setAttribute('aria-label', `Открыть видео ${card.querySelector('figcaption span').textContent}`);
   card.addEventListener('click', () => openCard(index));
+  card.addEventListener('pointerenter', () => {
+    const video = card.querySelector('video');
+    if (video) video.play().catch(() => {});
+  });
+  card.addEventListener('pointerleave', () => {
+    const video = card.querySelector('video');
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
   card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -43,7 +69,7 @@ galleryCards.forEach((card, index) => {
     }
   });
 });
-function closeBox(){box.classList.remove('open');box.setAttribute('aria-hidden','true')}
+function closeBox(){box.classList.remove('open');box.setAttribute('aria-hidden','true');boxVideo.pause()}
 function nextBox(){openCard(activeCard + 1)}
 function prevBox(){openCard(activeCard - 1)}
 box.querySelector('.lightbox-close').addEventListener('click',closeBox);
