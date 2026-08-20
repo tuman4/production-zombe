@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#070a0d" />
   <title>Production Zombe — 26e</title>
   <meta name="description" content="Production Zombe — 26e." />
-  <link rel="stylesheet" href="./src/style.css?v=20260820-left-readable" />
+  <link rel="stylesheet" href="./src/style.css?v=20260820-live-hero-type" />
 </head>
 <body>
   <div class="noise"></div>
@@ -22,15 +22,26 @@
 
   <main>
     <section class="hero" aria-label="Главный экран">
-      <img class="hero-bg" src="./src/assets/hero-reference.jpg?v=20260820-baked-buttons-active" alt="Production Zombe — видеограф в тёмном лесу с камерой Panasonic" fetchpriority="high" />
+      <img class="hero-bg" src="./src/assets/hero-reference.jpg?v=20260820-live-hero-type" alt="Production Zombe — видеограф в тёмном лесу с камерой Panasonic" fetchpriority="high" />
       <div class="hero-vignette"></div>
+      <div class="hero-type" aria-label="26e videographer">
+        <div class="hero-type__mark" aria-hidden="true">26e</div>
+        <div class="hero-type__role">VIDEOGRAPHER</div>
+        <div class="hero-type__copy">
+          <span>СВЕТ / КАДР</span>
+          <span>МОНТАЖ / ЗВУК</span>
+          <span>ГОТОВЫЙ МАТЕРИАЛ</span>
+        </div>
+        <div class="hero-type__actions">
+          <a class="hero-action" href="#reel"><span>SHOWREEL</span><b>→</b></a>
+          <a class="hero-action" href="https://t.me/egirzombe" target="_blank" rel="noreferrer"><span>TELEGRAM</span><b>→</b></a>
+        </div>
+      </div>
       <div class="camera-sharp" aria-hidden="true"></div>
       <svg class="camera-thread" viewBox="0 0 100 100" aria-hidden="true">
         <path class="camera-thread__base" d="M8 56 C18 32 42 17 67 15 C91 14 101 32 93 48 C84 68 51 83 26 75 C10 70 2 63 8 56 Z" />
         <path class="camera-thread__run" d="M8 56 C18 32 42 17 67 15 C91 14 101 32 93 48 C84 68 51 83 26 75 C10 70 2 63 8 56 Z" />
       </svg>
-      <a class="hero-hotspot showreel-hotspot" href="#reel" aria-label="Showreel"></a>
-      <a class="hero-hotspot telegram-hotspot" href="https://t.me/egirzombe" target="_blank" rel="noreferrer" aria-label="Telegram @egirzombe"></a>
       <div class="scroll-hint"><span></span>SCROLL TO EXPLORE</div>
     </section>
 
@@ -145,6 +156,6 @@
     <div class="lightbox-caption"></div>
   </div>
 
-  <script src="./src/main.js?v=20260820-left-readable"></script>
+  <script src="./src/main.js?v=20260820-live-hero-type"></script>
 </body>
 </html>
