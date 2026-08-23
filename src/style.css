@@ -186,12 +186,12 @@ a{color:inherit;text-decoration:none} button{font:inherit}
 .work-card:hover video,.work-card:focus-visible video{transform:scale(1.035);filter:saturate(1.14) contrast(1.12) brightness(.96)}
 .work-card figcaption{display:grid;grid-template-columns:1fr auto;align-items:end;row-gap:12px;line-height:1.18}
 .work-card figcaption span{max-width:560px;color:#f4f7f8;font-size:clamp(13px,1.05vw,18px);letter-spacing:.16em;text-transform:uppercase}
-.work-card figcaption p{grid-column:1/-1;max-width:520px;margin:0;color:rgba(211,220,224,.72);font-family:Manrope,Arial,sans-serif;font-size:13px;letter-spacing:0;line-height:1.55;text-transform:none}
+.work-card figcaption p{grid-column:1/-1;max-width:640px;margin:0;color:rgba(211,220,224,.76);font-family:Manrope,Arial,sans-serif;font-size:13px;letter-spacing:0;line-height:1.55;text-transform:none}
 .work-card.large figcaption span{font-size:clamp(15px,1.3vw,22px)}
 .work-card:after{bottom:92px}
 .reel-frame video{display:block}.reel-frame.playing video{filter:brightness(.62) saturate(.78)}
-.contact-links a b{font-size:10px;letter-spacing:.14em;color:#aeb8be;white-space:nowrap}
-.contact-links a[href*="instagram"]{margin-top:18px}
+.contact-links a b{font-size:10px;letter-spacing:.14em;color:#aeb8be;white-space:nowrap;margin-left:18px}
+.contact-links a[href*="instagram"]{margin-top:0}
 
 @media(max-width:700px){
   .work-card figcaption{grid-template-columns:1fr;gap:8px}
@@ -203,3 +203,11 @@ a{color:inherit;text-decoration:none} button{font:inherit}
   .contact-links a b{font-size:9px;white-space:normal;text-align:right}
   .lightbox video{width:94vw;max-height:72vh}.lightbox-caption{width:82vw;text-align:center;line-height:1.5}
 }
+
+/* --- Contact/material clarity pass --- */
+.audio-rig{display:none!important}
+.contact-links{align-items:flex-end}
+.contact-links a{height:44px;min-width:166px;align-items:flex-start}
+.contact-links a[href*='instagram']{min-width:194px;margin-top:0!important}
+.work-card.large figcaption p,.work-card.wide figcaption p{max-width:720px}
+@media(max-width:700px){.contact-links a{height:auto;min-width:100%}.contact-links a[href*='instagram']{min-width:100%}.work-card figcaption p{max-width:100%;font-size:12px;line-height:1.42}}
