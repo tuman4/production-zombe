@@ -174,7 +174,9 @@ a{color:inherit;text-decoration:none} button{font:inherit}
   .about-grid{gap:30px}.about-title span{font-size:11px}.about-title strong{font-size:76px}.about-copy .lead{font-size:30px}
   .contact{padding-top:78px;padding-bottom:82px}.contact .section-kicker{margin-bottom:44px}.contact-content p{font-size:10px}.contact h2{font-size:64px;line-height:.9}.contact-links{gap:20px;margin-top:40px}.contact-links a{min-width:210px;font-size:12px}
   footer{height:auto;padding:28px 20px 96px;display:grid;gap:16px;font-size:9px;line-height:1.6}
-  .audio-rig{display:none}
+  .audio-rig{right:12px;bottom:12px;width:150px;padding:6px}
+  .audio-rig .audio-rig__hardware,.audio-rig .audio-viz{display:none}
+  .audio-rig .sound-toggle{height:34px;font-size:8px;padding:0 9px}
 }
 
 @media(max-width:380px){
@@ -205,9 +207,8 @@ a{color:inherit;text-decoration:none} button{font:inherit}
 }
 
 /* --- Contact/material clarity pass --- */
-.audio-rig{display:none!important}
 .contact-links{align-items:flex-end}
 .contact-links a{height:44px;min-width:166px;align-items:flex-start}
 .contact-links a[href*='instagram']{min-width:194px;margin-top:0!important}
 .work-card.large figcaption p,.work-card.wide figcaption p{max-width:720px}
-@media(max-width:700px){.contact-links a{height:auto;min-width:100%}.contact-links a[href*='instagram']{min-width:100%}.work-card figcaption p{max-width:100%;font-size:12px;line-height:1.42}}
+@media(max-width:700px){.contact-links a{height:auto;min-width:100%}.contact-links a[href*='instagram']{min-width:100%}.work-card figcaption p{max-width:100%;font-size:12px;line-height:1.42}.audio-rig{display:block!important;right:12px;bottom:12px;width:150px;padding:6px}.audio-rig .audio-rig__hardware,.audio-rig .audio-viz{display:none}.audio-rig .sound-toggle{height:34px;font-size:8px;padding:0 9px}}
