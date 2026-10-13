@@ -14,6 +14,7 @@ const contentTypes = new Map([
   [".png", "image/png"],
   [".svg", "image/svg+xml"],
   [".mp3", "audio/mpeg"],
+  [".mp4", "video/mp4"],
 ]);
 
 async function walk(dir) {
@@ -47,7 +48,7 @@ for (const file of sourceFiles) {
 
 assets["/"] = assets["/index.html"];
 
-await rm(dist, { recursive: true, force: true });
+await rm(serverDir, { recursive: true, force: true });
 await mkdir(serverDir, { recursive: true });
 
 const worker = `const assets = ${JSON.stringify(assets)};
